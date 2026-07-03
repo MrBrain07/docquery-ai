@@ -1,0 +1,29 @@
+Vector Embeddings and Similarity Search
+
+An embedding is a way of representing a piece of text — a word, sentence, or
+paragraph — as a list of numbers (a vector) in a high-dimensional space. The
+key property of a good embedding model is that pieces of text with similar
+meaning end up close together in that space, even if they don't share the
+same words. For example, "the stock market fell sharply" and "equities
+suffered a steep decline" would produce vectors that are close together,
+because an embedding model captures semantic meaning, not just keywords.
+
+Sentence-transformer models such as all-MiniLM-L6-v2 are popular for this
+task because they run locally on a CPU, are fast, and produce reasonably
+strong embeddings for general-purpose text without requiring a paid API.
+Larger models or API-based embeddings (such as OpenAI's text-embedding-3)
+can produce higher-quality vectors at the cost of speed, price, and an
+external network dependency.
+
+Once text is converted into vectors, similarity search finds the vectors
+closest to a query vector, usually using cosine similarity or Euclidean
+distance. FAISS (Facebook AI Similarity Search) is an open-source library
+that makes this search extremely fast, even across millions of vectors, by
+using approximate nearest-neighbor algorithms instead of brute-force
+comparison.
+
+In a RAG system, at query time the user's question is embedded using the
+same embedding model used for the documents, and the vector store returns
+the top-k most similar document chunks. Choosing k involves a tradeoff:
+too few chunks may miss the answer, too many chunks add noise and cost to
+the generation step.

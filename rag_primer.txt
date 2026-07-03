@@ -1,0 +1,36 @@
+Retrieval-Augmented Generation (RAG): A Primer
+
+Large Language Models (LLMs) are trained on a fixed snapshot of data and cannot
+know about information created after their training cutoff, nor can they see
+private or domain-specific documents they were never trained on. Retrieval-
+Augmented Generation solves this by combining two systems: a retriever and a
+generator.
+
+The retriever's job is to search a knowledge base — often a collection of
+documents converted into vector embeddings — and find the passages most
+relevant to a user's question. This is typically done using a vector database
+such as FAISS, Pinecone, or Chroma, which stores high-dimensional numeric
+representations of text and allows fast similarity search.
+
+The generator is usually a large language model. Instead of answering purely
+from its training data, the model is given the retrieved passages as context
+and instructed to answer using that context. This grounds the model's output
+in real, verifiable source material, significantly reducing hallucination
+compared to an ungrounded chatbot.
+
+A typical RAG pipeline has five stages: ingestion (loading and cleaning raw
+documents), chunking (splitting long documents into smaller overlapping
+pieces so retrieval is precise), embedding (converting each chunk into a
+vector using an embedding model), indexing (storing those vectors for fast
+search), and finally retrieval plus generation at query time.
+
+Chunk size and overlap matter a lot in practice. Chunks that are too large
+dilute relevance during retrieval; chunks that are too small lose context
+that spans sentences. A common starting point is 500-1000 characters per
+chunk with 10-20% overlap between consecutive chunks, tuned based on the
+document type.
+
+RAG is widely used in enterprise settings for building internal knowledge
+assistants, customer support bots that answer from product documentation,
+and legal or medical assistants that must cite their sources rather than
+answer from memory alone.

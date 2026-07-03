@@ -1,0 +1,29 @@
+Onboarding Guide — Sample Document
+
+Welcome to the team. Your first week follows a structured onboarding plan
+designed to get you productive quickly while making sure you understand how
+the team works.
+
+Day 1: IT setup and account provisioning. You will receive a laptop, email
+account, and access to internal tools including the project tracker, chat
+platform, and code repository. Complete the mandatory security awareness
+training module before end of day.
+
+Day 2-3: Product and codebase orientation. You will be paired with a buddy
+from your team who will walk you through the codebase architecture, the
+current sprint board, and the team's coding standards document. You are
+expected to set up your local development environment and successfully run
+the test suite by end of Day 3.
+
+Day 4-5: First contribution. You will be assigned a small, well-scoped
+starter task (typically a bug fix or minor feature) to complete and submit
+for code review. This is meant to exercise the full development workflow:
+branching, code review, CI checks, and deployment to the staging
+environment.
+
+Week 2 onward: Regular sprint participation. You will attend daily standups,
+sprint planning, and retrospectives. Your manager will schedule a 30-day,
+60-day, and 90-day check-in to discuss progress and any support you need.
+
+Questions during onboarding should go to your assigned buddy first, and to
+your manager or HR for anything role- or policy-related.
